@@ -2,7 +2,7 @@
 
 /**
  * str_concat - Concatenates two strings into a newly allocated space in memory.
- * @s1: The first string. 
+ * @s1: The first string.
  * @s2: The second string.
  *
  * Return: A pointer to the concatenated string, or NULL if memory allocation
