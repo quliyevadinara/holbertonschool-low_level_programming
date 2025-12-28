@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <string.h>
 
 /**
  * _strdup - Returns a pointer to a newly allocated space in memory containing
@@ -7,17 +6,21 @@
  * @str: The string to duplicate.
  *
  * Return: A pointer to the duplicated string, or NULL if str is NULL or memory
- *         allocation fails.
+ *         allocation fails. 
  */
 char *_strdup(char *str)
 {
 	char *duplicate;
-	size_t length, i;
+	unsigned int length, i;
 
 	if (str == NULL)
 		return (NULL);
 
-	length = strlen(str);
+	/* Calculate length manually */
+	length = 0;
+	while (str[length] != '\0')
+		length++;
+
 	duplicate = malloc((length + 1) * sizeof(char));
 	if (duplicate == NULL)
 		return (NULL);
