@@ -4,7 +4,7 @@
  * print_all - prints anything
  * @format: list of types of arguments passed to the function
  *
- * Return:  void
+ * Return: void
  */
 void print_all(const char * const format, ...)
 {
@@ -16,33 +16,31 @@ void print_all(const char * const format, ...)
 
 	while (format && format[i])
 	{
-		if (format[i] == 'c')
+		switch (format[i])
 		{
+		case 'c':
 			printf("%s%c", sep, va_arg(args, int));
 			sep = ", ";
-		}
-		if (format[i] == 'i')
-		{
+			break;
+		case 'i': 
 			printf("%s%d", sep, va_arg(args, int));
 			sep = ", ";
-		}
-		if (format[i] == 'f')
-		{
+			break;
+		case 'f':
 			printf("%s%f", sep, va_arg(args, double));
 			sep = ", ";
-		}
-		if (format[i] == 's')
-		{
+			break;
+		case 's':
 			str = va_arg(args, char *);
 			if (str == NULL)
 				str = "(nil)";
 			printf("%s%s", sep, str);
 			sep = ", ";
+			break;
 		}
 		i++;
 	}
 
 	printf("\n");
-
 	va_end(args);
 }
